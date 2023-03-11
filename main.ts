@@ -1,6 +1,3 @@
-radio.onReceivedNumber(function (receivedNumber) {
-    SensorValue = receivedNumber
-})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "tmp") {
         value = Environment.octopus_BME280(Environment.BME280_state.BME280_temperature_C)
@@ -20,10 +17,10 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "lvl") {
     	
     } else if (receivedString == "rnp") {
-    	
+        value = pins.analogReadPin(AnalogPin.P0) * 3.3 / 1023
+        radio.sendNumber(value)
     }
 })
 let value = 0
-let SensorValue = 0
 basic.showIcon(IconNames.Yes)
 radio.setGroup(1)
