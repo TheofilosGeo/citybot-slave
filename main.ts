@@ -23,4 +23,4 @@ radio.onReceivedString(function (receivedString) {
 })
 let value = 0
 basic.showIcon(IconNames.Yes)
-radio.setGroup(1)
+radio.setGroup(167)
